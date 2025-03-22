@@ -59,7 +59,7 @@
 .footer-icon {
   width: 20px;
   height: 20px;
-  margin-right: 0.75rem;
+  margin-right: 0.55rem;
   margin-top: 2px;
   flex-shrink: 0;
 }
@@ -158,5 +158,11 @@
   
   .footer-contact-item p {
     font-size: 0.9rem;
+    max-width: 70%;
+
   }
+
+  
+
+  
 }
