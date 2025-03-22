@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import logo from "../assets/logo_without_text.png"; 
-import wtspLogo from "../assets/whatsapp.png";
-import gmailLogo from "../assets/gmail.png";
+import logo from "/assets/logo_without_text.png"; 
+import wtspLogo from "/assets/whatsapp.png";
+import gmailLogo from "/assets/gmail.png";
 import "./Contact.css";
 
 const Contact = () => {

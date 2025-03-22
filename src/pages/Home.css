@@ -6,7 +6,7 @@
 .home-bg-image {
     min-height: 100vh; /* Ensures the full height before other content */
     width: 100%;
-    background: url('../assets/granite-bg-img.jpg') no-repeat center center/cover;
+    background: url('/assets/granite-bg-img.jpg') no-repeat center center/cover;
     position: relative; /* Changed from absolute */
     display: flex;
     align-items: center;

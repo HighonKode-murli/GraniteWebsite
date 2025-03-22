@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ThemeContext } from '../context/ThemeContext';
-import logo from '../assets/logo_without_text.png';
+import logo from '/assets/logo_without_text.png';
 import './Footer.css';
-import wtspLogo from '../assets/whatsapp.png';
-import gmailLogo from '../assets/gmail.png';
+import wtspLogo from '/assets/whatsapp.png';
+import gmailLogo from '/assets/gmail.png';
 
 const Footer = () => {
   const { theme } = useContext(ThemeContext);

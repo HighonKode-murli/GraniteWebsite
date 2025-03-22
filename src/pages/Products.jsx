@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Products.css";
-import graniteImg1 from "../assets/granite_img1.jpeg";
-import graniteImg2 from "../assets/granite_img2.jpeg";
-import graniteImg3 from "../assets/granite_img3.jpeg";
-import graniteImg4 from "../assets/granite_img4.jpeg";
-import graniteImg5 from "../assets/granite_img5.jpeg";
-import graniteImg6 from "../assets/granite_img6.jpeg";
-import graniteImg7 from "../assets/granite_img7.jpeg";
+import graniteImg1 from "/assets/granite_img1.jpeg";
+import graniteImg2 from "/assets/granite_img2.jpeg";
+import graniteImg3 from "/assets/granite_img3.jpeg";
+import graniteImg4 from "/assets/granite_img4.jpeg";
+import graniteImg5 from "/assets/granite_img5.jpeg";
+import graniteImg6 from "/assets/granite_img6.jpeg";
+import graniteImg7 from "/assets/granite_img7.jpeg";
 
 const Products = () => {
   // Product data with names and images

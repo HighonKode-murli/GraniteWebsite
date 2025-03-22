@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import "./navbar.css";
 import { useEffect, useState, useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
-import logo from "../assets/logo.png";
+import logo from "/assets/logo.png";
 
 const NavBar = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
