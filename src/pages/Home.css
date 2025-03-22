@@ -1,0 +1,118 @@
+.home-container {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.home-bg-image {
+    min-height: 100vh; /* Ensures the full height before other content */
+    width: 100%;
+    background: url('../assets/granite-bg-img.jpg') no-repeat center center/cover;
+    position: relative; /* Changed from absolute */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    top: 0;
+    z-index: -1;
+    transition: filter var(--transition-speed) ease;
+}
+
+.dark-mode .home-bg-image {
+    filter: brightness(0.7);
+}
+
+.home-container .home-bg-image .home-main-text {
+    color: #faf6f6;
+    font-weight: 550;
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+    margin-top: 60px;   
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+    transition: color var(--transition-speed) ease;
+    
+}
+
+
+#main-text-1 , #main-text-2 {
+    font-family: 'Poppins', sans-serif;
+    font-size : 5rem;
+    
+}
+
+
+.main-text {
+    margin-bottom: 5px;
+}
+
+ .highlight {
+    background: linear-gradient(to right, #ffffff, #ffff00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 5rem;
+    text-shadow: 1px 10px 13px rgba(247, 236, 133, 0.237);
+    font-family: 'Poppins', sans-serif;
+}
+
+.home-subtext {
+    font-size: 1.6rem;
+    color: #F5F5DC;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Poppins', sans-serif;
+   
+
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .home-container .home-bg-image .home-main-text {
+        font-size: 5rem;
+        width: 700px;
+    }
+    
+    .home-container .home-bg-image .home-main-text .highlight {
+        font-size: 5.5rem;
+    }
+    
+    .home-subtext {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+     .home-main-text {
+        font-size: 4.5rem;
+        width: 90%;
+        max-width: 600px;
+        
+    }
+    
+     .highlight {
+        font-size: 4.4rem;
+    }
+    
+    .home-subtext {
+        font-size: 2rem;
+        margin-top: 18px;
+    }
+}
+
+@media (max-width: 576px) {
+    .home-container .home-bg-image .home-main-text {
+        font-size: 4rem;
+        width: 90%;
+        margin-top: 40px;
+    }
+    
+    .home-container .home-bg-image .home-main-text .highlight {
+        font-size: 4.5rem;
+    }
+
+    #main-text-1 , #main-text-2 {
+        font-size : 4.5rem;
+    }
+    
+    .home-subtext {
+        font-size: 2rem;
+    }
+}

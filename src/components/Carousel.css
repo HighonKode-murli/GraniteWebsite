@@ -1,0 +1,231 @@
+.project-section {
+  padding: 80px 0;
+  background-color: var(--bg-color);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: background-color var(--transition-speed) ease;
+ 
+}
+
+/* Add this new class for the background image */
+.project-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('../assets/construction-worker-bg.jpg') no-repeat center center/cover;
+  opacity: 0.08; /* Very subtle opacity */
+  z-index: 0;
+  filter: grayscale(30%); /* Slightly desaturate the image */
+  transition: opacity var(--transition-speed) ease;
+}
+
+.dark-mode .project-section::before {
+  opacity: 0.04;
+}
+
+.project-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 50px;
+  align-items: center;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1; /* Ensure content is above the background */
+}
+
+.project-image-container {
+  width: 50%;
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 20px var(--shadow-color);
+  transition: box-shadow var(--transition-speed) ease;
+  border-radius: 8px;
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 1s ease-in-out;
+  height: 100%;
+  width: 100%;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.project-info {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--card-bg);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px var(--shadow-color);
+  transition: background-color var(--transition-speed) ease, 
+              box-shadow var(--transition-speed) ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.project-info h2 {
+  font-size: 36px;
+  color: var(--text-color);
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  transition: color var(--transition-speed) ease;
+}
+
+.project-info h3 {
+  font-size: 42px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 25px;
+  line-height: 1.2;
+  font-family: 'Poppins', sans-serif;
+  transition: color var(--transition-speed) ease;
+}
+
+.project-info p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+  transition: color var(--transition-speed) ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.project-details {
+  margin-bottom: 30px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border-color);
+  transition: border-color var(--transition-speed) ease;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: var(--text-color);
+  transition: color var(--transition-speed) ease;
+}
+
+.detail-value {
+  color: var(--text-secondary);
+  transition: color var(--transition-speed) ease;
+}
+
+.view-portfolio-btn {
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background-color var(--transition-speed) ease;
+  border-radius: 4px;
+}
+
+.view-portfolio-btn:hover {
+  background-color: var(--accent-hover);
+}
+
+/* Make it responsive */
+@media (max-width: 992px) {
+  .project-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .project-image-container,
+  .project-info {
+    width: 100%;
+  }
+  
+  .project-image-container {
+    height: 400px;
+  }
+  
+  .project-info h3 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-section {
+    padding: 60px 0;
+  }
+  
+  .project-image-container {
+    height: 350px;
+  }
+  
+  .project-info {
+    padding: 25px;
+  }
+  
+  .project-info h3 {
+    font-size: 30px;
+  }
+  
+  .project-info p {
+    font-size: 15px;
+    margin-bottom: 25px;
+  }
+  
+  .view-portfolio-btn {
+    padding: 12px 25px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .project-section {
+    padding: 40px 0;
+  }
+  
+  .project-container {
+    padding: 0 15px;
+  }
+  
+  .project-image-container {
+    height: 250px;
+  }
+  
+  .project-info {
+    padding: 20px;
+    
+  }
+  
+  .project-info h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    
+  }
+  
+  .project-info p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .view-portfolio-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    
+    text-align: center;
+  }
+}
