@@ -53,6 +53,7 @@
   padding: 10px 0;
   scrollbar-width: none; /* For Firefox */
   -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
 }
 
 .grid-layout::-webkit-scrollbar {
@@ -128,11 +129,88 @@
   }
 }
 
+@media (max-width: 992px) {
+  .grid-item {
+    flex: 0 0 280px;
+    height: 300px;
+  }
+  
+  .grid-container {
+    padding: 0 50px;
+  }
+}
+
 @media (max-width: 768px) {
+  .images-grid-display {
+    padding: 60px 10px 40px;
+  }
+  
+  .section-header h2 {
+    font-size: 26px;
+  }
+  
+  .grid-item {
+    flex: 0 0 240px;
+    height: 260px;
+  }
+  
   .carousel-arrow {
     width: 40px;
     height: 40px;
     font-size: 16px;
+  }
+  
+  .grid-container {
+    padding: 0 40px;
+  }
+  
+  .grid-layout {
+    gap: 15px;
+  }
+  
+  .image-overlay span {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .images-grid-display {
+    padding: 50px 5px 30px;
+  }
+  
+  .section-header h2 {
+    font-size: 24px;
+  }
+  
+  .section-header a {
+    font-size: 14px;
+  }
+  
+  .grid-item {
+    flex: 0 0 200px;
+    height: 220px;
+  }
+  
+  .carousel-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+  
+  .grid-container {
+    padding: 0 30px;
+  }
+  
+  .grid-layout {
+    gap: 10px;
+  }
+  
+  .image-overlay {
+    padding: 10px 5px;
+  }
+  
+  .image-overlay span {
+    font-size: 12px;
   }
 }
 
@@ -186,35 +264,6 @@
   width: 100px;
   height: auto;
   object-fit: contain;
-}
-
-/* Responsive adjustments */
-@media (max-width: 992px) {
-  .grid-item {
-    flex: 0 0 280px;
-    height: 300px;
-  }
-}
-
-@media (max-width: 576px) {
-  .grid-item {
-    flex: 0 0 220px;
-    height: 260px;
-  }
-  
-  .section-header h2 {
-    font-size: 28px;
-  }
-  
-  .section-header a {
-    font-size: 16px;
-  }
-  
-  .carousel-arrow {
-    width: 32px;
-    height: 32px;
-    font-size: 18px;
-  }
 }
 
 

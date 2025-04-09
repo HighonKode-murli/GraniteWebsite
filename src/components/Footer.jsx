@@ -12,20 +12,18 @@ const Footer = () => {
   return (
     <footer className={`footer ${theme === 'dark' ? 'dark-footer' : ''}`}>
       <div className="footer-container">
-        <div className="footer-grid">
-          {/* Logo Column */}
-          <div className="footer-logo-col">
+        <div className="footer-content">
+          {/* Logo */}
+          <div className="footer-section">
             <Link to="/">
               <img src={logo} alt="RBM Granites logo" className="footer-logo" />
             </Link>
           </div>
 
-          {/* Contact Info Column */}
-          <div className="footer-contact-col">
-            <h3 className="footer-heading" style={{color:'#f3b409'}}>Contact Info</h3>
+          {/* Contact Info */}
+          <div className="footer-section">
+            <h3 className="footer-heading">Contact Info</h3>
             <div className="footer-contact-items">
-              
-              
               <div className="footer-contact-item">
                 <svg className="footer-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
@@ -47,18 +45,38 @@ const Footer = () => {
                 <p>GSTIN: 36AAVFR5307G1ZV</p>
               </div>
               <div className="footer-contact-item">
-                <svg style={{marginRight:'7px'}} className="footer-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg className="footer-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                 </svg>
-                <p>Survey No. 35/A, Kazipur Village, <br /> Kothapally Mandal, Karimnagar District, <br /> Telangana</p>
+                <p>Survey No. 35/A, Kazipur Village, Kothapally Mandal, Karimnagar District, Telangana</p>
               </div>
             </div>
           </div>
 
-          {/* Social Media Column */}
-          <div className="footer-social-col">
-            <h3 className="footer-heading" style={{color:'#f3b409'}}>Connect With Us</h3>
+          {/* Products */}
+          <div className="footer-section">
+            <h3 className="footer-heading">Products</h3>
+            <div className="footer-links-items">
+              <Link to="/granite/coffee-brown" className="footer-link">Coffee Brown</Link>
+              <Link to="/granite/silver-black" className="footer-link">Silver Black</Link>
+              <Link to="/granite/tan-brown" className="footer-link">Tan Brown</Link>
+              <Link to="/granite/honey-brown" className="footer-link">Honey Brown</Link>
+              <Link to="/granite/safari-brown" className="footer-link">Safari Brown</Link>
+            </div>
+          </div>
+
+          {/* Links & Connect */}
+          <div className="footer-section">
+            <h3 className="footer-heading">Links</h3>
+            <div className="footer-links-items">
+              <Link to="/" className="footer-link">About Us</Link>
+              <Link to="/contact" className="footer-link">Contact Us</Link>
+              <Link to="/" className="footer-link">Latest Insights</Link>
+              
+            </div>
+            
+            <h3 className="footer-heading" style={{marginTop: '2rem'}}>Connect With Us</h3>
             <div className="footer-social-icons">
               <a href="mailto:kc15kailash@gmail.com" className="footer-social-link">
                 <img src={gmailLogo} alt="Email" className="footer-social-icon" />
