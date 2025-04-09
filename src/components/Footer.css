@@ -1,13 +1,14 @@
 /* Footer styling */
 .footer {
-  background-color: #1f2937;
-  color: white;
-  padding: 3rem 0;
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+  padding: 1.8rem 0;
   transition: background-color var(--transition-speed) ease;
+  
 }
 
 .dark-footer {
-  background-color: #0a0a0a;
+  background-color: #000000;
 }
 
 .footer-container {
@@ -43,21 +44,24 @@
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 1rem;
+  font-family: 'Poppins', sans-serif !important;
 }
 
 .footer-contact-items {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  
 }
 
 .footer-contact-item {
   display: flex;
   align-items: flex-start;
+  
 }
 
 .footer-icon {
-  width: 20px;
+  width: 2  0px;
   height: 20px;
   margin-right: 0.55rem;
   margin-top: 2px;
@@ -67,7 +71,8 @@
 .footer-contact-item p {
   font-size: 0.95rem;
   color: #e2e8f0;
-  line-height: 1.5;
+  line-height: 1.8;
+  font-family: 'Poppins', sans-serif !important;
 }
 
 .footer-social-icons {

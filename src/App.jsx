@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Contact from "./pages/Contact";
+import GraniteDetailPage from "./pages/GraniteDetailPage";
 import GoToTop from "./components/GoToTop";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/" element={<Home/>} />
           <Route path="/products" element={<Products/>} />
           <Route path="/contact" element={<Contact/>} />
+          <Route path="/granite/:graniteId" element={<GraniteDetailPage/>} />
         </Routes>
       </main>
       <Footer />

@@ -30,7 +30,43 @@ const NavBar = () => {
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
+    // Prevent scrolling when menu is open
+    document.body.style.overflow = !mobileMenuOpen ? 'hidden' : '';
   };
+  
+  const closeMenu = () => {
+    setMobileMenuOpen(false);
+    // Delay removing the overflow hidden to allow animation to complete
+    setTimeout(() => {
+      document.body.style.overflow = '';
+    }, 400); // Match the animation duration
+  };
+
+  // Close menu when escape key is pressed
+  useEffect(() => {
+    const handleEsc = (event) => {
+      if (event.keyCode === 27) closeMenu();
+    };
+    
+    // Close menu when clicking outside
+    const handleClickOutside = (event) => {
+      const menu = document.querySelector('.mobile-menu');
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      
+      if (mobileMenuOpen && menu && !menu.contains(event.target) && !toggle.contains(event.target)) {
+        closeMenu();
+      }
+    };
+    
+    window.addEventListener('keydown', handleEsc);
+    document.addEventListener('mousedown', handleClickOutside);
+    
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = ''; // Reset on unmount
+    };
+  }, [mobileMenuOpen]);
 
   return (
     <>
@@ -114,7 +150,11 @@ const NavBar = () => {
           </button>
 
           {/* Hamburger Menu for Mobile */}
-          <div className="mobile-menu-toggle" onClick={toggleMobileMenu}>
+          <div 
+            className={`mobile-menu-toggle ${mobileMenuOpen ? "active" : ""}`} 
+            onClick={toggleMobileMenu}
+            aria-label="Toggle mobile menu"
+          >
             <span></span>
             <span></span>
             <span></span>
@@ -123,8 +163,8 @@ const NavBar = () => {
           {/* "Contact Us" Button */}
           <NavLink
             to="/contact"
-            className="navbar-button bg-yellow-500 text-white font-bold py-3 px-6"
-            onClick={() => setMobileMenuOpen(false)}
+            className="navbar-button"
+            onClick={closeMenu}
           >
             Contact Us
           </NavLink>
@@ -133,7 +173,7 @@ const NavBar = () => {
         {/* Mobile Menu */}
         <div className={`mobile-menu ${mobileMenuOpen ? "active" : ""}`}>
           <ul className="mobile-menu-list">
-            <li>
+            <li style={{"--i": 0}}>
               <NavLink
                 to="/"
                 className={({ isActive }) =>
@@ -141,12 +181,12 @@ const NavBar = () => {
                     ? "mobile-nav-link active-mobile-link"
                     : "mobile-nav-link"
                 }
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={closeMenu}
               >
                 Home
               </NavLink>
             </li>
-            <li>
+            <li style={{"--i": 1}}>
               <NavLink
                 to="/products"
                 className={({ isActive }) =>
@@ -154,12 +194,12 @@ const NavBar = () => {
                     ? "mobile-nav-link active-mobile-link"
                     : "mobile-nav-link"
                 }
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={closeMenu}
               >
                 Products
               </NavLink>
             </li>
-            <li>
+            <li style={{"--i": 2}}>
               <NavLink
                 to="/contact"
                 className={({ isActive }) =>
@@ -167,12 +207,14 @@ const NavBar = () => {
                     ? "mobile-nav-link active-mobile-link"
                     : "mobile-nav-link"
                 }
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={closeMenu}
               >
                 Contact
               </NavLink>
             </li>
           </ul>
+          
+          
         </div>
       </nav>
     </>

@@ -1,34 +1,42 @@
 /* Navbar styling */
 .navbar {
     position: fixed;
-    top: 20px; /* Creates the floating effect */
+    top: 0; /* Remove the gap by setting to 0 instead of 15px */
     left: 50%;
     transform: translateX(-50%);
-    width: 90%;
+    width: 100%;
     max-width: 1400px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 8px 18px;
-    background-color: rgb(244, 243, 243);
-    border-radius: 12px; /* Subtle rounded edges */
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: top 0.5s ease, background-color 0.3s ease, color 0.3s ease;
+    padding: 3px 12px;
+    background-color: rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px); /* For Safari */
+    /* Subtle rounded edges */
+    z-index: 1150; /* Higher than mobile menu but lower than toggle */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: none;
+    outline: none;
+    /* transition: top 1s ease, background-color 0.3s ease, color 0.3s ease; */
 }
 
 /* Dark Mode Navbar */
 .dark-navbar {
-    background-color: #1a1a1a;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.15); /* Much more transparent for dark mode */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: none;
+    outline: none;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
 }
 
 .dark-navbar .nav-link {
-    color: #f5f5f5 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .dark-navbar .nav-link:hover {
-    color: #ffba00;
+    color: #152046;
 }
 
 .dark-navbar .logo img {
@@ -42,30 +50,34 @@
 #logo-img {
     height: 60px;
     width: 220px;
-   
+    /* filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2)); */
 }
 
 /* Get in Touch Button */
 .navbar-button {
-    background-color: #ffba00; /* Orange background */
+    background-color: var(--accent-color);
     color: rgb(255, 255, 255);
     font-weight: bold;
     
     text-decoration: none;
-    transition: background 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     /* display: inline-block; */
     font-size: 15px;
-    padding: 15px 18px;
-    padding-left: 25px;
+    padding: 12px 22px;
     text-transform: uppercase;
     border: none;
     position: relative;
-    clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%);
+    clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 100% 100%, 3% 100%);
     font-family: 'Poppins', sans-serif;
+    border-radius: 8px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-button:hover {
-    background-color: #e6a800; /* Slightly darker orange on hover */
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 /* Navbar Actions (Theme Toggle + Contact Button) */
@@ -131,45 +143,40 @@
 
 .navbar-list .nav-link {
     text-decoration: none;
-    color: black;
-    transition: color 0.3s ease-in-out;
+    color: rgba(0, 0, 0, 0.8);
+    transition: color 0.3s ease-in-out, transform 0.2s ease;
     position: relative;
+    padding: 8px 0;
 }
 
 .dark-navbar .navbar-list .nav-link {
-    color: #f5f5f5 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .navbar-list .nav-link:hover {
-    color: #e6a800;
+    color: var(--accent-color);
+    transform: translateY(-1px);
 }
 
-.dark-navbar .navbar-list .nav-link:hover {
-    color: #ffba00 !important;
-}
-
-/* Orange underline for the active page */
+/* Modern underline for the active page */
 .navbar-list .active-link::after {
     content: "";
     display: block;
     width: 100%;
-    height: 5px; /* Adjust thickness */
-    background-color: #e89e27; /* Orange underline */
+    height: 2px; /* Even thinner, more modern underline */
+    background-color: var(--accent-color);
     position: absolute;
-    bottom: -28px; /* Adjust spacing */
+    bottom: -8px;
     left: 0;
+    border-radius: 2px;
+    transition: transform 0.3s ease, width 0.3s ease;
 }
 
 .mobile-nav-link{
     font-family: 'Poppins', sans-serif;
 }
 
-.navbar-scrolled {
-    top: 0;
-    width: 100%;
-    max-width: 100%;
-    border-radius: 0;
-}
+
 
 /* Mobile Menu Toggle Button */
 .mobile-menu-toggle {
@@ -179,7 +186,8 @@
     width: 30px;
     height: 21px;
     cursor: pointer;
-    z-index: 1001;
+    z-index: 1200; /* Higher z-index to stay above the menu */
+    position: relative;
 }
 
 .mobile-menu-toggle span {
@@ -194,68 +202,125 @@
     background-color: #f5f5f5;
 }
 
+/* Adjust for scrolled navbar */
+.navbar-scrolled .mobile-menu-toggle {
+    top: 0;
+}
+
 /* Mobile Menu */
 .mobile-menu {
     position: fixed;
-    top: 0;
-    right: -100%;
-    width: 80%;
-    max-width: 400px;
-    height: 100vh;
-    background-color: white;
-    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    transition: right 0.3s ease;
-    padding: 80px 20px 20px;
+    top: -120%; /* Start further up off-screen to ensure it's hidden */
+    left: 0;
+    right: 0;
+    width: 100%; /* Full width */
+    height: 55vh;
+    background-color: rgb(255, 255, 255);
+    background-image: linear-gradient(to bottom right, rgba(255,255,255,1), rgba(245,245,245,1));
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    z-index: 1100; /* Below the toggle button but above everything else */
+    transition: top 0.4s cubic-bezier(0.33, 1, 0.68, 1), 
+                opacity 0.4s ease-in-out,
+                visibility 0s linear 0.4s; /* Delay visibility change until after transitions */
+    padding: 100px 5% 50px; /* Extra top padding for the navbar */
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    visibility: hidden; /* Hide it completely when not active */
+    opacity: 0;
 }
 
 .dark-navbar .mobile-menu {
     background-color: #1a1a1a;
-    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.4);
+    background-image: linear-gradient(to bottom right, rgba(26,26,26,1), rgba(20,20,20,1));
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .mobile-menu.active {
-    right: 0;
+    top: 0; /* Slide in from top */
+    visibility: visible;
+    opacity: 1;
+    transition: top 0.4s cubic-bezier(0.33, 1, 0.68, 1), 
+                opacity 0.4s ease-in-out,
+                visibility 0s linear 0s; /* No delay on visibility when showing */
 }
 
 .mobile-menu-list {
     list-style: none;
     padding: 0;
     margin: 0;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
 }
 
 .mobile-menu-list li {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.33, 1, 0.68, 1), 
+                opacity 0.5s ease-in-out;
+    transition-delay: calc(0.05s * var(--i, 0));
+    position: relative;
+    padding: 5px 0;
+}
+
+.mobile-menu.active .mobile-menu-list li {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* When menu is closing, make items fade out slightly quicker but in reverse order */
+.mobile-menu:not(.active) .mobile-menu-list li {
+    transition-delay: calc(0.03s * (3 - var(--i, 0)));
 }
 
 .mobile-nav-link {
     display: block;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 600;
-    color: #333;
+    color: rgba(0, 0, 0, 0.9);
     text-decoration: none;
     padding: 10px 0;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.2s ease;
     position: relative;
 }
 
 .dark-navbar .mobile-nav-link {
-    color: #f5f5f5;
+    color: rgba(255, 255, 255, 0.95);
 }
 
 .mobile-nav-link:hover,
 .active-mobile-link {
-    color: #ffba00;
+    color: var(--accent-color);
+    transform: translateY(-2px);
 }
 
 .active-mobile-link::after {
     content: "";
     display: block;
-    width: 100px;
-    height: 3px;
-    background-color: #ffba00;
-    margin-top: 5px;
+    width: 40px;
+    height: 2px;
+    background-color: var(--accent-color);
+    margin: 5px auto 0; /* Center the underline */
+    border-radius: 2px;
+}
+
+/* Transform hamburger to X when menu is open */
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+    background-color: var(--accent-color);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+    background-color: var(--accent-color);
 }
 
 .mobile-theme-toggle {
@@ -317,14 +382,24 @@
         width: 36px;
         height: 36px;
     }
+    
+    /* Remove border styles */
+    .navbar {
+        border: none;
+    }
+    
+    .dark-navbar {
+        border: none;
+    }
 }
 
 @media (max-width: 576px) {
     .navbar {
-        top: 10px;
+        top: 0; /* Keep at 0 instead of 10px */
         width: 96%;
         padding: 8px 10px;
-        border-radius: 5px;
+        border-radius: 8px;
+        border: none;
     }
     
     #logo-img {
@@ -334,6 +409,13 @@
     
     .navbar-scrolled {
         top: 0;
+        border-radius: 0;
+        border: none;
+        border-bottom: none;
+    }
+    
+    .dark-navbar.navbar-scrolled {
+        border-bottom: none;
     }
     
     .navbar-button {
@@ -343,18 +425,129 @@
 
 /* Dark Mode Styles - Specific Overrides */
 .dark-navbar .nav-link {
-    color: #f5f5f5 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .dark-navbar .navbar-list .nav-link {
-    color: #f5f5f5 !important; 
+    color: rgba(255, 255, 255, 0.9) !important; 
 }
 
 .dark-navbar .active-link {
-    color: #f5f5f5 !important;
+    color: rgba(255, 255, 255, 1) !important;
 }
 
 .dark-navbar .nav-link:hover,
 .dark-navbar .navbar-list .nav-link:hover {
-    color: #ffba00 !important;
+    color: var(--accent-color) !important;
+}
+
+.dark-navbar .mobile-nav-link:hover,
+.dark-navbar .active-mobile-link {
+    color: var(--accent-color);
+}
+
+/* Mobile overlay for glass effect - removed since not needed for full-screen menu */
+.mobile-menu::before {
+    content: none;
+}
+
+.dark-navbar .mobile-menu::before {
+    content: none;
+}
+
+/* Add some divider and style for mobile menu items */
+.mobile-menu-list li::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark-navbar .mobile-menu-list li::after {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu-list li:last-child::after {
+    display: none;
+}
+
+/* Modern contact button in mobile menu */
+.mobile-contact-button {
+    margin-top: 40px;
+    padding: 12px 30px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 16px;
+    transition: all 0.3s ease, 
+                opacity 0.4s ease-in-out, 
+                transform 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+    letter-spacing: 1px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition-delay: 0.2s;
+}
+
+.mobile-menu.active .mobile-contact-button {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.25s;
+}
+
+/* When menu is closing, make button fade out immediately */
+.mobile-menu:not(.active) .mobile-contact-button {
+    transition-delay: 0s;
+}
+
+.mobile-contact-button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dark-navbar .mobile-contact-button {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Glass effect navbar with gradient border - REMOVED */
+.navbar::before {
+    content: none; /* Remove the border effect */
+}
+
+.dark-navbar::before {
+    content: none; /* Remove the border effect */
+}
+
+/* Make the logo stand out against the transparent background */
+.dark-navbar #logo-img {
+    filter: brightness(1.3) drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+}
+
+/* Add subtle background pattern */
+.mobile-menu::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 25px 25px, rgba(0, 0, 0, 0.01) 2px, transparent 0),
+        radial-gradient(circle at 75px 75px, rgba(0, 0, 0, 0.01) 2px, transparent 0);
+    background-size: 100px 100px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.dark-navbar .mobile-menu::after {
+    background-image: 
+        radial-gradient(circle at 25px 25px, rgba(255, 255, 255, 0.02) 2px, transparent 0),
+        radial-gradient(circle at 75px 75px, rgba(255, 255, 255, 0.02) 2px, transparent 0);
 }
